@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript Events Demo</title>
+
+  <style>
+
+    body{
+      font-family:Arial;
+      background:#f4f4f4;
+      text-align:center;
+      padding:40px;
+    }
+
+    .container{
+      background:white;
+      width:500px;
+      margin:auto;
+      padding:30px;
+      border-radius:15px;
+      box-shadow:0 0 15px rgba(0,0,0,0.2);
+    }
+
+    h1{
+      color:#333;
+      margin-bottom:20px;
+    }
+
+    button{
+      padding:10px 20px;
+      margin:10px;
+      border:none;
+      border-radius:8px;
+      background:#007bff;
+      color:white;
+      cursor:pointer;
+      font-size:16px;
+    }
+
+    button:hover{
+      background:#0056b3;
+    }
+
+    .box{
+      width:200px;
+      height:100px;
+      background:orange;
+      margin:20px auto;
+      line-height:100px;
+      color:white;
+      font-weight:bold;
+      border-radius:10px;
+    }
+
+    input{
+      padding:10px;
+      width:80%;
+      margin-top:15px;
+      border-radius:8px;
+      border:1px solid gray;
+    }
+
+    #output{
+      margin-top:20px;
+      font-size:20px;
+      color:green;
+      font-weight:bold;
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <h1>JavaScript Events</h1>
+
+    <!-- 1. onclick -->
+    <button onclick="clickEvent()">
+      Click Event
+    </button>
+
+    <br>
+
+    <!-- 2. ondblclick -->
+    <button ondblclick="doubleClickEvent()">
+      Double Click Event
+    </button>
+
+    <!-- 3. onmouseover -->
+    <div class="box"
+         id="box"
+         onmouseover="mouseOverEvent()"
+         onmouseout="mouseOutEvent()">
+      Hover Here
+    </div>
+
+    <!-- 4. onkeypress -->
+    <input type="text"
+           placeholder="Press any key"
+           onkeypress="keyPressEvent(event)">
+
+    <br><br>
+
+    <!-- 5. onfocus -->
+    <input type="text"
+           id="focusInput"
+           placeholder="Click inside input"
+           onfocus="focusEvent()">
+
+    <br><br>
+
+    <!-- 6. onchange -->
+    <select onchange="changeEvent(this.value)">
+      <option>Select Food</option>
+      <option>Pizza</option>
+      <option>Burger</option>
+      <option>Pasta</option>
+    </select>
+
+    <p id="output"></p>
+
+  </div>
+
+  <script>
+
+    // 1. Click Event
+    function clickEvent(){
+      document.getElementById("output").innerHTML =
+      "Button Clicked!";
+    }
+
+    // 2. Double Click Event
+    function doubleClickEvent(){
+      document.getElementById("output").innerHTML =
+      "Button Double Clicked!";
+    }
+
+    // 3. Mouse Over Event
+    function mouseOverEvent(){
+
+      document.getElementById("box").style.background =
+      "red";
+
+      document.getElementById("box").innerHTML =
+      "Mouse Over";
+
+    }
+
+    // Mouse Out Event
+    function mouseOutEvent(){
+
+      document.getElementById("box").style.background =
+      "orange";
+
+      document.getElementById("box").innerHTML =
+      "Hover Here";
+
+    }
+
+    // 4. Key Press Event
+    function keyPressEvent(event){
+
+      document.getElementById("output").innerHTML =
+      "Key Pressed : " + event.key;
+
+    }
+
+    // 5. Focus Event
+    function focusEvent(){
+
+      document.getElementById("focusInput").style.background =
+      "lightyellow";
+
+      document.getElementById("output").innerHTML =
+      "Input Focused";
+
+    }
+
+    // 6. Change Event
+    function changeEvent(value){
+
+      document.getElementById("output").innerHTML =
+      "Selected Food : " + value;
+
+    }
+
+  </script>
+
+</body>
+</html>
